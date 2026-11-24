@@ -1,65 +1,678 @@
-/* External CSS Stylesheet for Portal Wisata Kendal */
+/* ==========================================================================
+TEMA WISATA ALAM MEWAH & IMERSIF — PORTAL WISATA KABUPATEN KENDAL
+Palet: Hijau Hutan Tua, Hijau Sage, Biru Air Terjun, Krem Pasir Hangat,
+Putih Gading, serta Aksen Kuning Keemasan & Terakota.
+========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap');
 
 :root {
---primary-color: #0d9488;
---primary-dark: #0f766e;
---accent-color: #10b981;
+--forest-deep: #143d2b;
+--forest-rich: #1b4d37;
+--sage-main: #5f7f6e;
+--sage-pastel: #e8f0eb;
+--waterfall-blue: #1d6f8a;
+--waterfall-pastel: #e3f3f7;
+--sand-cream: #fbf9f4;
+--sand-warm: #f4efe6;
+--ivory-card: #fffefb;
+--accent-gold: #e09f3e;
+--accent-terracotta: #c85a32;
+--sun-pastel: #fdf3dc;
+--terracotta-pastel: #fbeae4;
+--ink-primary: #14281d;
+--ink-secondary: #4a5d52;
+--border-nature: rgba(20, 61, 43, 0.12);
+--shadow-nature: 0 14px 34px -12px rgba(20, 61, 43, 0.10);
+--shadow-nature-hover: 0 24px 48px -14px rgba(20, 61, 43, 0.20);
+--ease-nature: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+scroll-behavior: smooth;
+-webkit-tap-highlight-color: transparent;
 }
 
 body {
-font-family: 'Inter', sans-serif;
-background-color: #f8fafc;
-color: #1e293b;
+background-color: var(--sand-cream) !important;
+background-image:
+radial-gradient(circle at 8% 12%, rgba(95, 127, 110, 0.08) 0%, transparent 42%),
+radial-gradient(circle at 92% 24%, rgba(29, 111, 138, 0.07) 0%, transparent 45%),
+radial-gradient(circle at 50% 85%, rgba(224, 159, 62, 0.06) 0%, transparent 50%);
+color: var(--ink-primary) !important;
+font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+line-height: 1.7;
 overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
-font-family: 'Outfit', sans-serif;
+/* ==================== TIPOGRAFI EDITORIAL SERIF & SANS-SERIF ==================== */
+h1, h2, h3, #modal-title, #eticket-visitor-name, #admin-dashboard-modal h3 {
+font-family: 'Playfair Display', Georgia, serif !important;
+letter-spacing: -0.015em;
 }
 
-/* Custom transitions and scrollbar styling */
+p, input, select, textarea, button, a, label, span {
+font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.font-mono,
+#my-tickets-badge,
+#label-adult-unit-price,
+#label-child-unit-price,
+#calc-total-price,
+#eticket-total-price {
+font-family: 'JetBrains Mono', monospace !important;
+}
+
+/* Scrollbar Lembut Nuansa Hutan & Sage */
 ::-webkit-scrollbar {
 width: 8px;
+height: 8px;
 }
-
 ::-webkit-scrollbar-track {
-background: #f1f5f9;
+background: var(--sand-warm);
 }
-
 ::-webkit-scrollbar-thumb {
-background: #cbd5e1;
-border-radius: 4px;
+background: #8ba898;
+border-radius: 9999px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-background: #94a3b8;
+background: var(--forest-rich);
 }
 
-/* Custom smooth styling enhancements */
-.glass-effect {
-background: rgba(255, 255, 255, 0.85);
+@keyframes fadeSlideUp {
+from { opacity: 0; transform: translateY(16px) scale(0.99); }
+to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes cardStaggerIn {
+from { opacity: 0; transform: translateY(18px); }
+to { opacity: 1; transform: translateY(0); }
+}
+@keyframes gentleFloat {
+0%, 100% { transform: translateY(0px); }
+50% { transform: translateY(-4px); }
+}
+.animate-fade-up {
+animation: fadeSlideUp 0.32s var(--ease-nature) forwards;
+}
+.animate-card-in {
+animation: cardStaggerIn 0.44s var(--ease-nature) both;
+}
+.no-scrollbar::-webkit-scrollbar {
+display: none;
+}
+.no-scrollbar {
+-ms-overflow-style: none;
+scrollbar-width: none;
+}
+
+/* ==================== BANNER ADMIN ==================== */
+#admin-top-banner {
+background: linear-gradient(90deg, #0d2b1e 0%, var(--forest-deep) 55%, #154c5e 100%) !important;
+border-bottom: 1px solid rgba(224, 159, 62, 0.35) !important;
+}
+
+/* ==================== HEADER & NAVIGASI SEMI-TRANSPARAN ==================== */
+header {
+background: rgba(251, 249, 244, 0.88) !important;
+backdrop-filter: blur(18px) saturate(160%);
+-webkit-backdrop-filter: blur(18px) saturate(160%);
+border-bottom: 1px solid var(--border-nature) !important;
+box-shadow: 0 6px 24px -8px rgba(20, 61, 43, 0.08);
+}
+
+#secret-admin-logo {
+position: relative;
+overflow: hidden;
+background:
+radial-gradient(circle at 22% 18%, rgba(246, 196, 101, 0.34) 0%, transparent 48%),
+radial-gradient(circle at 85% 88%, rgba(29, 111, 138, 0.55) 0%, transparent 55%),
+linear-gradient(145deg, #0d2b1e 0%, #164e38 48%, #155e75 100%) !important;
+color: #fffefb !important;
+font-family: 'Playfair Display', Georgia, serif !important;
+border: 1.5px solid rgba(246, 196, 101, 0.62) !important;
+box-shadow:
+inset 0 1px 1px rgba(255, 255, 255, 0.35),
+inset 0 -3px 8px rgba(7, 24, 16, 0.55),
+0 10px 24px -6px rgba(20, 61, 43, 0.48) !important;
+transition: transform 0.28s var(--ease-nature), box-shadow 0.28s var(--ease-nature), border-color 0.28s var(--ease-nature);
+}
+#secret-admin-logo::after {
+content: "";
+position: absolute;
+inset: 0;
+background: linear-gradient(125deg, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.04) 45%, transparent 60%);
+pointer-events: none;
+}
+#secret-admin-logo:hover {
+transform: translateY(-2px) scale(1.05);
+border-color: rgba(246, 196, 101, 0.92) !important;
+box-shadow:
+inset 0 1px 2px rgba(255, 255, 255, 0.45),
+inset 0 -3px 8px rgba(7, 24, 16, 0.55),
+0 14px 28px -6px rgba(20, 61, 43, 0.58),
+0 0 0 3px rgba(224, 159, 62, 0.18) !important;
+}
+
+header > div > div:first-child span.font-extrabold {
+font-family: 'Playfair Display', Georgia, serif !important;
+color: var(--forest-deep) !important;
+letter-spacing: -0.01em;
+}
+
+header nav {
+background: rgba(232, 240, 235, 0.85) !important;
+border: 1px solid rgba(20, 61, 43, 0.10) !important;
+}
+header nav a {
+color: var(--ink-secondary) !important;
+transition: all 0.24s var(--ease-nature);
+}
+header nav a:hover {
+background-color: var(--ivory-card) !important;
+color: var(--forest-deep) !important;
+box-shadow: 0 4px 14px -4px rgba(20, 61, 43, 0.12);
+transform: translateY(-1px);
+}
+
+/* Tombol Tiket Saya */
+header button[onclick="openMyTicketsModal()"] {
+background: linear-gradient(135deg, var(--forest-deep) 0%, var(--forest-rich) 100%) !important;
+color: var(--sand-cream) !important;
+border: 1px solid rgba(224, 159, 62, 0.3);
+box-shadow: 0 8px 20px -6px rgba(20, 61, 43, 0.35);
+}
+header button[onclick="openMyTicketsModal()"]:hover {
+transform: translateY(-1px);
+box-shadow: 0 12px 24px -6px rgba(20, 61, 43, 0.45);
+}
+#my-tickets-badge {
+background: linear-gradient(135deg, var(--accent-gold) 0%, #eab308 100%) !important;
+color: #14281d !important;
+}
+
+/* ==================== IKON VEKTOR BERWARNA & BINGKAI PASTEL ==================== */
+header nav a:nth-child(1) svg {
+box-sizing: content-box;
+padding: 4px;
+border-radius: 8px;
+background-color: var(--sage-pastel);
+color: #1b6b45 !important;
+stroke: #1b6b45 !important;
+}
+header nav a:nth-child(2) svg {
+box-sizing: content-box;
+padding: 4px;
+border-radius: 8px;
+background-color: var(--sun-pastel);
+color: #c27818 !important;
+stroke: #c27818 !important;
+}
+header nav a:nth-child(3) svg {
+box-sizing: content-box;
+padding: 4px;
+border-radius: 8px;
+background-color: var(--terracotta-pastel);
+color: #c85a32 !important;
+stroke: #c85a32 !important;
+fill: rgba(224, 159, 62, 0.25);
+}
+header nav a:nth-child(4) svg {
+box-sizing: content-box;
+padding: 4px;
+border-radius: 8px;
+background-color: var(--waterfall-pastel);
+color: var(--waterfall-blue) !important;
+stroke: var(--waterfall-blue) !important;
+}
+
+/* Ikon Kategori Filter */
+.cat-filter-btn[data-cat="all"] svg {
+color: #e09f3e !important;
+stroke: currentColor !important;
+}
+.cat-filter-btn[data-cat="Air Terjun"] svg {
+box-sizing: content-box;
+padding: 3px;
+border-radius: 9999px;
+background-color: var(--waterfall-pastel);
+color: var(--waterfall-blue) !important;
+stroke: var(--waterfall-blue) !important;
+fill: rgba(29, 111, 138, 0.22);
+}
+.cat-filter-btn[data-cat="Pantai"] svg {
+box-sizing: content-box;
+padding: 3px;
+border-radius: 9999px;
+background-color: #e0f2fe;
+color: #0369a1 !important;
+stroke: #0369a1 !important;
+}
+.cat-filter-btn[data-cat="Pegunungan & Hutan"] svg {
+box-sizing: content-box;
+padding: 3px;
+border-radius: 9999px;
+background-color: var(--sage-pastel);
+color: #15803d !important;
+stroke: #15803d !important;
+fill: rgba(21, 128, 61, 0.18);
+}
+
+/* Ikon pada Form Loket Tiket & Add-ons */
+#booking-form label > svg {
+box-sizing: content-box;
+padding: 4px;
+border-radius: 8px;
+background-color: var(--sage-pastel);
+color: var(--forest-rich) !important;
+stroke: var(--forest-rich) !important;
+}
+#booking-form .w-10.h-10.rounded-xl {
+background: linear-gradient(135deg, var(--sage-pastel) 0%, var(--waterfall-pastel) 100%) !important;
+border-color: rgba(20, 61, 43, 0.12) !important;
+}
+#booking-form .w-10.h-10.rounded-xl svg {
+color: var(--forest-deep) !important;
+stroke: var(--forest-deep) !important;
+}
+#booking-form label .w-9.h-9 {
+background: linear-gradient(135deg, var(--sun-pastel) 0%, var(--sage-pastel) 100%) !important;
+border-color: rgba(224, 159, 62, 0.28) !important;
+}
+#booking-form label .w-9.h-9 svg {
+color: var(--accent-terracotta) !important;
+stroke: var(--accent-terracotta) !important;
+}
+
+/* Ikon Metode Pembayaran */
+.pay-method-card[data-pay="QRIS Instant"] svg {
+box-sizing: content-box;
+padding: 6px;
+border-radius: 10px;
+background-color: var(--sage-pastel);
+color: #15803d !important;
+stroke: #15803d !important;
+}
+.pay-method-card[data-pay="Virtual Account"] svg {
+box-sizing: content-box;
+padding: 6px;
+border-radius: 10px;
+background-color: var(--waterfall-pastel);
+color: var(--waterfall-blue) !important;
+stroke: var(--waterfall-blue) !important;
+}
+.pay-method-card[data-pay="Tunai di Loket"] svg {
+box-sizing: content-box;
+padding: 6px;
+border-radius: 10px;
+background-color: var(--sun-pastel);
+color: var(--accent-terracotta) !important;
+stroke: var(--accent-terracotta) !important;
+}
+
+/* ==================== HERO SECTION MEGAH BERNUANSA ALAM ==================== */
+section.bg-editorial-dots {
+position: relative;
+background-color: #102e21 !important;
+background-image:
+linear-gradient(165deg, rgba(11, 36, 25, 0.88) 0%, rgba(20, 61, 43, 0.82) 52%, rgba(23, 78, 92, 0.88) 100%),
+url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 640'%3E%3Cdefs%3E%3ClinearGradient id='sky' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23143d2b'/%3E%3Cstop offset='50%25' stop-color='%231d6f8a'/%3E%3Cstop offset='100%25' stop-color='%230d281c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='1440' height='640' fill='url(%23sky)'/%3E%3Ccircle cx='1160' cy='150' r='95' fill='%23e09f3e' fill-opacity='0.28'/%3E%3Cpath d='M0 440 Q 260 240 560 390 T 1120 310 T 1440 380 L 1440 640 L 0 640 Z' fill='%230d2b1e' fill-opacity='0.65'/%3E%3Cpath d='M0 500 Q 340 340 720 470 T 1440 420 L 1440 640 L 0 640 Z' fill='%23091f15' fill-opacity='0.85'/%3E%3C/svg%3E") !important;
+background-size: cover !important;
+background-position: center !important;
+border-bottom: 1px solid rgba(224, 159, 62, 0.25) !important;
+padding-top: 4.5rem !important;
+padding-bottom: 5rem !important;
+}
+
+/* Ornamen Vektor Daun Tropis Halus pada Hero */
+section.bg-editorial-dots::before {
+content: "";
+position: absolute;
+top: 1.5rem;
+left: 1.5rem;
+width: 140px;
+height: 140px;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120' fill='none'%3E%3Cpath d='M15 105C25 55 62 24 108 14C96 62 66 96 15 105Z' fill='%235f7f6e' fill-opacity='0.22' stroke='%23e09f3e' stroke-opacity='0.35' stroke-width='1.5'/%3E%3Cpath d='M15 105C48 72 78 44 108 14' stroke='%23e09f3e' stroke-opacity='0.35' stroke-width='1.2'/%3E%3C/svg%3E");
+background-repeat: no-repeat;
+background-size: contain;
+pointer-events: none;
+animation: gentleFloat 6s ease-in-out infinite;
+}
+
+section.bg-editorial-dots::after {
+content: "";
+position: absolute;
+bottom: 1.25rem;
+right: 1.5rem;
+width: 150px;
+height: 150px;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 120' fill='none'%3E%3Cpath d='M105 15C95 65 58 96 12 106C24 58 54 24 105 15Z' fill='%231d6f8a' fill-opacity='0.24' stroke='%238ba898' stroke-opacity='0.35' stroke-width='1.5'/%3E%3Cpath d='M105 15C72 48 42 76 12 106' stroke='%238ba898' stroke-opacity='0.35' stroke-width='1.2'/%3E%3C/svg%3E");
+background-repeat: no-repeat;
+background-size: contain;
+pointer-events: none;
+animation: gentleFloat 7s ease-in-out infinite reverse;
+}
+
+/* Badge Lokasi pada Hero */
+section.bg-editorial-dots .inline-flex.rounded-full {
+background: rgba(255, 254, 251, 0.14) !important;
 backdrop-filter: blur(12px);
+border: 1px solid rgba(224, 159, 62, 0.45) !important;
+color: #fdf3dc !important;
+}
+section.bg-editorial-dots .inline-flex.rounded-full svg {
+color: var(--accent-gold) !important;
+stroke: var(--accent-gold) !important;
 }
 
-.hero-pattern {
-background-image: radial-gradient(#14b8a6 1px, transparent 1px);
-background-size: 16px 16px;
+/* Judul Utama Hero Putih Gading & Sorotan Emas Hangat */
+section.bg-editorial-dots h1 {
+color: #fffefb !important;
+text-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+}
+section.bg-editorial-dots h1 span {
+background: linear-gradient(135deg, #f6c465 0%, #e09f3e 50%, #e87a54 100%) !important;
+-webkit-background-clip: text !important;
+background-clip: text !important;
+color: transparent !important;
+text-shadow: none;
+}
+
+section.bg-editorial-dots p {
+color: rgba(244, 239, 230, 0.9) !important;
+}
+
+/* Bilah Pencarian Kaca pada Hero */
+section.bg-editorial-dots .rounded-2xl.shadow-editorial {
+background: rgba(255, 254, 251, 0.96) !important;
+border: 1px solid rgba(224, 159, 62, 0.35) !important;
+box-shadow: 0 22px 48px -12px rgba(7, 24, 16, 0.45) !important;
+}
+section.bg-editorial-dots .rounded-2xl.shadow-editorial:focus-within {
+border-color: var(--accent-gold) !important;
+box-shadow: 0 24px 52px -12px rgba(7, 24, 16, 0.52), 0 0 0 4px rgba(224, 159, 62, 0.25) !important;
+}
+
+/* Tombol Utama Hero (Emas Keemasan ke Terakota) */
+section.bg-editorial-dots a[href="#tiket"] {
+background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-terracotta) 100%) !important;
+color: #fffefb !important;
+box-shadow: 0 10px 24px -4px rgba(200, 90, 50, 0.48);
+transition: all 0.25s var(--ease-nature);
+}
+section.bg-editorial-dots a[href="#tiket"]:hover {
+filter: brightness(1.06);
+transform: translateY(-2px);
+box-shadow: 0 14px 28px -4px rgba(200, 90, 50, 0.58);
+}
+
+/* ==================== KATALOG & KARTU DESTINASI ==================== */
+#destinasi {
+padding-top: 4.5rem;
+padding-bottom: 4.5rem;
+}
+
+#destinasi h2, #tiket h2, #ulasan h2, #panduan h2 {
+color: var(--forest-deep) !important;
+}
+
+.cat-filter-btn {
+background-color: var(--ivory-card) !important;
+border: 1px solid var(--border-nature) !important;
+color: var(--ink-secondary) !important;
+transition: all 0.25s var(--ease-nature);
+}
+.cat-filter-btn:hover {
+border-color: var(--forest-rich) !important;
+color: var(--forest-deep) !important;
+transform: translateY(-1px);
+box-shadow: 0 6px 16px -6px rgba(20, 61, 43, 0.16);
+}
+.cat-filter-btn[class*="bg-[#059669]"] {
+background: linear-gradient(135deg, var(--forest-deep) 0%, var(--forest-rich) 100%) !important;
+color: #fffefb !important;
+border-color: transparent !important;
+box-shadow: 0 8px 20px -6px rgba(20, 61, 43, 0.38);
+}
+
+#sort-dest-select {
+background-color: var(--ivory-card) !important;
+border-color: var(--border-nature) !important;
+color: var(--forest-deep) !important;
+}
+
+#destinations-grid article {
+background: var(--ivory-card) !important;
+border-radius: 1.65rem !important;
+border: 1px solid var(--border-nature) !important;
+box-shadow: var(--shadow-nature) !important;
+transition: transform 0.38s var(--ease-nature), box-shadow 0.38s var(--ease-nature), border-color 0.38s var(--ease-nature);
+}
+#destinations-grid article:hover {
+transform: translateY(-7px);
+border-color: rgba(29, 111, 138, 0.35) !important;
+box-shadow: var(--shadow-nature-hover) !important;
+}
+
+/* Zoom Perlahan & Kilau Alami pada Foto Kartu Wisata */
+#destinations-grid article .relative.h-56 {
+background: linear-gradient(135deg, var(--forest-deep) 0%, var(--waterfall-blue) 100%);
+overflow: hidden;
+}
+#destinations-grid article img {
+transition: transform 0.85s var(--ease-nature), filter 0.55s var(--ease-nature);
+}
+#destinations-grid article:hover img {
+transform: scale(1.08);
+filter: saturate(1.12) contrast(1.03);
+}
+#destinations-grid article h3 {
+color: var(--forest-deep) !important;
+transition: color 0.25s var(--ease-nature);
+}
+#destinations-grid article:hover h3 {
+color: var(--waterfall-blue) !important;
+}
+
+/* Ikon Lokasi & Jam pada Kartu Destinasi /
+#destinations-grid article p svg {
+color: var(--accent-terracotta) !important;
+stroke: var(--accent-terracotta) !important;
+}
+#destinations-grid article .border-t svg {
+color: var(--waterfall-blue) !important;
+stroke: var(--waterfall-blue) !important;
+}
+#destinations-grid article .font-mono[class="text-[#059669]"] {
+color: var(--forest-deep) !important;
+}
+
+/* Tombol Detail & Maps (Biru Air Terjun Pastel) */
+#destinations-grid article button[onclick^="openDetailModal"] {
+background-color: var(--waterfall-pastel) !important;
+border-color: rgba(29, 111, 138, 0.22) !important;
+color: #134e63 !important;
+}
+#destinations-grid article button[onclick^="openDetailModal"]:hover {
+background-color: #d0ebf2 !important;
+transform: translateY(-1px);
+}
+#destinations-grid article button[onclick^="openDetailModal"] svg {
+color: var(--waterfall-blue) !important;
+stroke: var(--waterfall-blue) !important;
+}
+
+/* Tombol Pesan Tiket Kartu (Aksen Emas & Terakota) */
+#destinations-grid article button[onclick^="selectDestinationAndScrollToTicket"] {
+background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-terracotta) 100%) !important;
+color: #fffefb !important;
+box-shadow: 0 8px 18px -5px rgba(200, 90, 50, 0.42);
+}
+#destinations-grid article button[onclick^="selectDestinationAndScrollToTicket"]:hover {
+filter: brightness(1.06);
+transform: translateY(-1px);
+box-shadow: 0 12px 22px -5px rgba(200, 90, 50, 0.52);
+}
+
+/* ==================== LOKET TIKET DIGITAL (#tiket) ==================== */
+#tiket {
+background: linear-gradient(180deg, var(--sand-warm) 0%, var(--sand-cream) 100%) !important;
+border-color: var(--border-nature) !important;
+}
+#tiket > div > .rounded-3xl {
+background-color: var(--ivory-card) !important;
+border: 1px solid var(--border-nature) !important;
+box-shadow: var(--shadow-nature) !important;
+}
+
+#tab-btn-book[class*="border-[#059669]"],
+#tab-btn-validate[class*="border-[#059669]"],
+#tab-btn-promo[class*="border-[#059669]"] {
+border-bottom-color: var(--accent-terracotta) !important;
+color: var(--forest-deep) !important;
+background: var(--ivory-card) !important;
+}
+
+#ticket-tab-book, #ticket-tab-validate, #ticket-tab-promo {
+background-color: var(--ivory-card) !important;
+}
+
+#booking-form input, #booking-form select, #check-booking-input {
+background-color: var(--sand-cream) !important;
+border-color: var(--border-nature) !important;
+color: var(--ink-primary) !important;
+}
+#booking-form input:focus, #booking-form select:focus, #check-booking-input:focus {
+background-color: #ffffff !important;
+border-color: var(--waterfall-blue) !important;
+box-shadow: 0 0 0 4px rgba(29, 111, 138, 0.14) !important;
+}
+
+#booking-quota-bar {
+background: linear-gradient(90deg, var(--forest-deep) 0%, var(--waterfall-blue) 100%) !important;
+}
+
+/* Panel Ringkasan & Tombol Bayar Utama */
+#booking-form > div:last-child {
+background: linear-gradient(135deg, #102e21 0%, var(--forest-deep) 55%, #164e63 100%) !important;
+border: 1px solid rgba(224, 159, 62, 0.35) !important;
+}
+#calc-total-price {
+color: #f6c465 !important;
+}
+#submit-booking-btn:not(:disabled) {
+background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-terracotta) 100%) !important;
+color: #fffefb !important;
+box-shadow: 0 10px 24px -4px rgba(200, 90, 50, 0.48) !important;
+}
+#submit-booking-btn:not(:disabled):hover {
+filter: brightness(1.06);
+transform: translateY(-2px);
+}
+
+/* ==================== ULASAN PENGUNJUNG (#ulasan) ==================== */
+#ulasan {
+background-color: var(--sand-cream) !important;
+}
+#ulasan .bg-white.rounded-3xl,
+#reviews-list-container > div {
+background-color: var(--ivory-card) !important;
+border: 1px solid var(--border-nature) !important;
+box-shadow: var(--shadow-nature) !important;
+}
+#review-form input, #review-form select, #review-form textarea {
+background-color: var(--sand-cream) !important;
+border-color: var(--border-nature) !important;
+}
+#review-form button[type="submit"] {
+background: linear-gradient(135deg, var(--forest-deep) 0%, var(--waterfall-blue) 100%) !important;
+color: #fffefb !important;
+box-shadow: 0 10px 22px -6px rgba(20, 61, 43, 0.38);
+}
+#review-form button[type="submit"]:hover {
+filter: brightness(1.06);
+transform: translateY(-1px);
+}
+
+/* ==================== PANDUAN WISATAWAN & KONTAK DARURAT (#panduan) ==================== */
+#panduan {
+background: linear-gradient(180deg, var(--sand-warm) 0%, var(--sand-cream) 100%) !important;
+border-top: 1px solid var(--border-nature) !important;
+}
+#panduan .bg-white.rounded-3xl {
+background-color: var(--ivory-card) !important;
+border: 1px solid var(--border-nature) !important;
+box-shadow: var(--shadow-nature) !important;
+}
+#panduan .bg-white.rounded-3xl h3 {
+color: var(--forest-deep) !important;
+}
+#aksesibilitas-card {
+background: linear-gradient(155deg, #0b1324 0%, #102436 100%) !important;
+border: 1px solid rgba(52, 211, 153, 0.22) !important;
+box-shadow: 0 22px 44px -14px rgba(11, 17, 32, 0.35) !important;
+}
+#aksesibilitas-card h3 {
+color: #ffffff !important;
+}
+
+/* ==================== MODAL & NOTA TRANSAKSI ==================== */
+#detail-modal > div,
+#mytickets-modal > div,
+#admin-login-modal > div,
+#admin-dashboard-modal > div,
+#admin-confirm-modal > div {
+background-color: var(--ivory-card) !important;
+border: 1px solid var(--border-nature) !important;
+}
+#modal-book-btn {
+background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-terracotta) 100%) !important;
+color: #fffefb !important;
+}
+
+#eticket-modal > div {
+background: linear-gradient(160deg, #102e21 0%, var(--forest-deep) 55%, #164e63 100%) !important;
+border: 1px solid rgba(224, 159, 62, 0.4) !important;
+}
+#eticket-total-price {
+color: #f6c465 !important;
+}
+#eticket-modal button[onclick="sendConfirmationToAdminWa()"] {
+background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-terracotta) 100%) !important;
+color: #fffefb !important;
+}
+
+/* ==================== FOOTER ==================== /
+footer#site-dark-footer {
+background: #060b19 !important;
+border-top: 1px solid rgba(148, 163, 184, 0.14) !important;
+color: #94a3b8 !important;
+}
+footer#site-dark-footer span[class="bg-[#059669]"] {
+background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+font-family: 'Plus Jakarta Sans', sans-serif !important;
+}
+
+input, select, textarea, button, a {
+transition-property: color, background-color, border-color, box-shadow, transform, opacity, filter;
+transition-duration: 220ms;
+transition-timing-function: var(--ease-nature);
 }
 
 @media print {
 body * {
-visibility: hidden;
+visibility: hidden !important;
 }
-#eticket-printable, #eticket-printable * {
-visibility: visible;
+#printable-eticket-sheet,
+#printable-eticket-sheet * {
+visibility: visible !important;
 }
-#eticket-printable {
+#printable-eticket-sheet {
+display: block !important;
 position: fixed;
-left: 0;
-top: 0;
+inset: 0;
 width: 100%;
-background: white;
-color: black;
-padding: 20px;
+background: #ffffff;
+padding: 24px;
+z-index: 99999;
 }
 }
