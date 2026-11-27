@@ -1236,6 +1236,16 @@
             return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg).replace(/'/g, "%27")}`;
         }
 
+         const defaultPhotos = {
+            'curugsewu': { url: 'images/curug-sewu.jpg', rootFile: 'curug-sewu.jpg', fallbackUrl: '' },
+            'pantaicahaya': { url: 'images/cahaya.jpg', rootFile: 'cahaya.jpg', fallbackUrl: '' },
+            'kebuntehmedini': { url: 'images/kebun-teh-medini.jpg', rootFile: 'kebun-teh-medini.jpg', fallbackUrl: '' },
+            'hutanpinus': { url: 'images/nglimut.jpg', rootFile: 'nglimut.jpg', fallbackUrl: '' },
+            'pantaingebum': { url: 'images/ngebum.jpg', rootFile: 'ngebum.jpg', fallbackUrl: '' },
+            'pulautiban': { url: 'images/pulau-tiban.jpg', rootFile: 'pulau-tiban.jpg', fallbackUrl: '' },
+            'curuglawesicepit': { url: 'images/curug-lawe.jpg', rootFile: 'curug-lawe.jpg', fallbackUrl: '' }
+        };
+
         const defaultDestinationsData = {
             'curugsewu': {
                 id: 'curugsewu',
@@ -1251,7 +1261,7 @@
                 desc: 'Air terjun bertingkat tiga dengan total ketinggian 70 meter yang dikelilingi hutan pinus sejuk dan taman rekreasi keluarga di dataran tinggi Patean, Kendal.',
                 facilities: ['Area Parkir Luas', 'Gardu Pandang', 'Taman Bermain', 'Mushola', 'Sentra Kuliner'],
                 mapQuery: 'Air Terjun Curug Sewu Patean Kendal',
-                photo: 'curug-sewu.jpg',
+                photo: 'images/curug-sewu.jpg',
                 gradColors: ['#143d2b', '#1d6f8a']
             },
             'pantaicahaya': {
